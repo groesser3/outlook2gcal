@@ -1,0 +1,83 @@
+=outlook2gcal 
+
+This lib/tool syncs your Outlook calendar with your (private) Google calendar. The synchronisation is only one-way: Outlook events are pushed to your Google Calendar. All types of events (including recurring events like anniversaries) are supported.
+Note: no admin rights required
+
+== Alternatives
+
+GoogleCalendarSync worked fine for me until we had to switch from Windows XP to Windows 7. In Windows 7 it requires admin rights to install it. 
+
+http://support.google.com/calendar/bin/answer.py?hl=en&answer=98563&topic=13948&ctx=topic
+
+
+== Installation Instructions
+
+  gem install outlook2gcal
+
+==Usage
+
+Usage: outlook2gcal <command> <opts>
+
+Commands: sync
+
+Specific options:
+    -U, --gmail-username USERNAME    Google user name
+    -P, --gmail-password PASSWORD    Google user password
+    -C, --gmail-calendar CALENDAR    Google calendar (default: 'Outlook')
+    -D, --days DAYS                  Do not sync events older then DAYS days
+        --sync-desc                  Sync event description (default: no)
+        --sync-alarm                 Sync event alarm notification (default: no)
+        --sync-names                 Sync attendees (default: no)"
+         
+
+Example:
+    outlook2gcal sync -U username@gmail.com -P 123secret -C Outlook -D 14
+
+Common options:
+    -?, --help                       Show this message
+
+== Prerequisites
+
+ 1. Ruby 1.9.1 or later
+ 2. Outlook 2007
+    * might work with other versions too 
+ 3. Google Account 
+    * use your gmail-account or create a new one  
+    * create an additional calendar for your LotusNotes Calender entries. Name it as you like 
+       (i.e. Outlook) but do not use whitespaces or any other special characters.
+
+== Supported Platforms
+
+This library is supported on Windows 2000 or later.
+
+==Used libs: 
+* gcal4ruby  (modified version)
+* win32ole 
+* datamapper
+* do_sqlite3
+* log4r
+...
+
+
+== Licence/Copyright
+
+Copyright (c) 2012 Elias Kugler
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

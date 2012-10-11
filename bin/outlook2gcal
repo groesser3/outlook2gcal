@@ -1,0 +1,72 @@
+#$:.unshift '../test/mock/win32ole','../test/mock/gcal4ruby','../lib' #<< '../lib'
+#$:.unshift '../test/mock/win32ole','../lib' #<< '../lib'
+$:.unshift '../lib' #<< '../lib'
+
+require 'rubygems'
+require 'optparse'
+require 'outlook2gcal/sync'
+require 'outlook2gcal/install'
+
+conf = {}
+
+opts = OptionParser.new do |opts|
+  opts.banner = "Usage: outlook2gcal <command> <opts> "
+  opts.separator ""
+  opts.separator "Commands: sync"
+  opts.separator ""
+  opts.separator "Specific options:"
+  opts.on("-U", "--gmail-username USERNAME", "Google mail user name") { |gmail_user| conf[:gmail_user]=gmail_user }
+  opts.on("-P", "--gmail-password PASSWORD", "Google mail password") { |gmail_password| conf[:gmail_password]= gmail_password}
+  opts.on("-C", "--gmail-calendar CALENDAR", "Google calendar (default: 'LotusNotes')") { |gmail_calendar|conf[:gmail_calendar]=gmail_calendar }
+  opts.on("-D", "--days DAYS", "Do not sync events older then DAYS days (default: no limit)") { |days| conf[:days]=days.to_i }
+  opts.on("--sync-desc", "Sync event description (default: no)") { |sync_desc| conf[:sync_desc]=sync_desc }
+  opts.on("--sync-alarm", "Sync alarm notification (default: no)") { |sync_alarm| conf[:sync_alarm]= sync_alarm }
+  opts.on("--sync-names", "Sync attendees (default: no)") { |sync_names| conf[:sync_names]=sync_names }
+
+  opts.separator ""
+  opts.separator "Example:" 
+  opts.separator "    outlook2gcal sync -U username@gmail.com -P top123secret -C Outlook -D 14"
+  opts.separator ""
+  opts.separator "Common options:"
+    
+  # No argument, shows at tail.  This will print an options summary.
+  opts.on_tail("-?", "--help", "Show this message") do
+     puts opts
+     exit
+  end
+  
+  opts.on_tail("-v", "--version", "Show version") do
+    puts "outlook2gcal 0.0.1"
+    exit
+  end
+  
+  opts.on_tail "\n(c) 2012 Elias Kugler"    
+  
+end
+
+opts.parse! ARGV
+
+if defined?Ocra
+  exit
+else
+  if ARGV.length != 1
+    puts opts
+    exit
+  end
+  conf[:command] = ARGV[0]
+end
+
+# --------------------------------------------------
+#
+# --------------------------------------------------
+if conf[:command] == 'sync'
+  olsync = Outlook2GCal::OutlookGoogleSync.new(conf)
+  c = olsync.sync_events
+  c.show                         # show statistics
+elsif conf[:command] == 'install'
+  Outlook2GCal::install(conf)
+  exit
+else
+  puts opts
+  exit
+end

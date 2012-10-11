@@ -1,0 +1,2 @@
+=== Version 0.0.1
+  * Initial version. Code based on ncal2gcal 0.1.7 (c) 2012 Elias Kugler
