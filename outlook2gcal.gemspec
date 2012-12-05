@@ -18,12 +18,7 @@ spec = Gem::Specification.new do |s|
   s.executables = ["outlook2gcal"]
   s.homepage = %q{http://rubyforge.org/projects/outlook2gcal/}
   s.rubyforge_project = %q{outlook2gcal}
-  s.add_dependency("dm-core", ">= 1.2.0")
-  s.add_dependency("dm-migrations", ">= 1.2.0")
-  s.add_dependency("do_sqlite3", ">= 0.10.8")
-  s.add_dependency("gdata4ruby", "=0.1.5")
-#  s.add_dependency("gcal4ruby", ">=0.5.5")   #!!! you need a modified version of this gem !!!
-  s.add_dependency("log4r", ">=1.1.10")
+
 
 end
 

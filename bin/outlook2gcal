@@ -3,6 +3,7 @@
 $:.unshift '../lib' #<< '../lib'
 
 require 'rubygems'
+require 'bundler/setup'
 require 'optparse'
 require 'outlook2gcal/sync'
 require 'outlook2gcal/install'
