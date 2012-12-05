@@ -1,11 +1,11 @@
 =outlook2gcal 
 
-This lib/tool syncs your Outlook calendar with your (private) Google calendar. The synchronisation is only one-way: Outlook events are pushed to your Google Calendar. All types of events (including recurring events like anniversaries) are supported.
+This app syncs your Outlook calendar with your (private) Google calendar. The synchronisation is only one-way: Outlook events are pushed to your Google Calendar. All types of events (including recurring events like anniversaries) are supported.
 Note: no admin rights required
 
 == Alternatives
 
-GoogleCalendarSync worked fine for me until we had to switch from Windows XP to Windows 7. In Windows 7 it requires admin rights to install it. 
+GoogleCalendarSync worked fine for me until I had to switch from Windows XP to Windows 7. In Windows 7 GoogleCalendarSync requires admin rights to install it. 
 
 http://support.google.com/calendar/bin/answer.py?hl=en&answer=98563&topic=13948&ctx=topic
 
@@ -23,7 +23,7 @@ Commands: sync
 Specific options:
     -U, --gmail-username USERNAME    Google user name
     -P, --gmail-password PASSWORD    Google user password
-    -C, --gmail-calendar CALENDAR    Google calendar (default: 'Outlook')
+    -C, --gmail-calendar CALENDAR    Google calendar (default: 'Outlook'). Note: calendar must exist
     -D, --days DAYS                  Do not sync events older then DAYS days
         --sync-desc                  Sync event description (default: no)
         --sync-alarm                 Sync event alarm notification (default: no)

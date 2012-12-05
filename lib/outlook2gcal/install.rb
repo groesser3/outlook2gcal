@@ -84,8 +84,3 @@ __END__
     f.close
   end 
 end
-
-    if __FILE__ == $0 then 
-      puts "test"
-      Outlook2GCal::create_start_file(File.realdirpath('.'))
-    end
