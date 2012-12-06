@@ -9,10 +9,10 @@ GoogleCalendarSync worked fine for me until I had to switch from Windows XP to W
 
 http://support.google.com/calendar/bin/answer.py?hl=en&answer=98563&topic=13948&ctx=topic
 
-
 == Installation Instructions
 
   gem install outlook2gcal
+
 
 ==Usage
 
@@ -38,14 +38,16 @@ Common options:
 
 == Prerequisites
 
- 1. Ruby 1.9.1 or later
+ 1. Ruby 1.9.1 or later 
+ 1.1 Sqlite3 installed. 
+    A description how to install Sqlite3 on Windows: http://www.skorks.com/2009/08/installing-and-using-sqlite-with-ruby-on-windows/
  2. Outlook 2007
     * might work with other versions too 
  3. Google Account 
     * use your gmail-account or create a new one  
     * create an additional calendar for your LotusNotes Calender entries. Name it as you like 
        (i.e. Outlook) but do not use whitespaces or any other special characters.
-
+ 
 == Supported Platforms
 
 This library is supported on Windows 2000 or later.
